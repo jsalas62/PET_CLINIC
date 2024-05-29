@@ -82,6 +82,11 @@ public class PetControllerTest {
 				.andExpect(jsonPath("$[2].birthDate", is(BIRTH_DATE3)));
 	}
 
+	@Test
+	public void testFindPetsByBirthMonth_NoContent() throws Exception {
+		this.mockMvc.perform(get("/findByBirthMonth/10"))
+				.andExpect(status().isNoContent());
+	}
 
 	@Test
 	public void testFindAllPets() throws Exception {

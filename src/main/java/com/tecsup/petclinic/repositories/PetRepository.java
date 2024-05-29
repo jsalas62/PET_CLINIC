@@ -28,14 +28,11 @@ public interface PetRepository
 	// Fetch pets by ownerId
 	List<Pet> findByOwnerId(int ownerId);
 
-	// Fetch pets by Id
-
+	// Fetch pets by mont of birthDate
 
 	@Query("SELECT p FROM pets p WHERE MONTH(p.birthDate) = :month")
 	List<Pet> findByBirthMonth(@Param("month") int month);
 
-
 	@Override
 	List<Pet> findAll();
-
 }
